@@ -60,12 +60,16 @@
 
   .action-list { display: flex; flex-direction: column; gap: 9px; }
   .action-card { background: var(--card); border: 1.5px solid var(--amber-border); border-left: 5px solid var(--amber); border-radius: var(--radius); padding: 13px 14px; position: relative; }
-  .action-card.dismissed { display: none; }
+  .action-card.dismissed { opacity: 0.45; background: #f0f0f0 !important; border-color: #ccc !important; border-left-color: #999 !important; filter: grayscale(1); }
+  .action-card.dismissed h3 { text-decoration: line-through; color: var(--muted); }
+  .action-card.dismissed .ac-tag { background: #999 !important; }
+  .action-card.dismissed .dismiss-btn { background: #e8f5e9; border-color: #a5d6a7; color: #2e7d32; }
   .action-card .ac-tag { display: inline-block; background: var(--amber); color: white; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.7px; text-transform: uppercase; padding: 2px 8px; border-radius: 20px; margin-bottom: 5px; }
-  .action-card h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--blue); margin-bottom: 3px; padding-right: 28px; }
+  .action-card h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--blue); margin-bottom: 3px; padding-right: 60px; }
   .action-card p { font-size: 13px; color: var(--slate); }
-  .dismiss-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; cursor: pointer; color: var(--muted); font-size: 16px; line-height: 1; padding: 2px 5px; border-radius: 4px; }
+  .dismiss-btn { position: absolute; top: 10px; right: 10px; background: #f4f4f4; border: 1px solid #ddd; cursor: pointer; color: var(--muted); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 11px; line-height: 1; padding: 4px 9px; border-radius: 20px; white-space: nowrap; }
   .dismissed-notice { font-size: 12px; color: var(--muted); text-align: center; padding: 8px; display: none; font-style: italic; }
+  .reset-btn { display: block; margin: 4px auto 0; background: none; border: none; font-family: 'Nunito', sans-serif; font-size: 11px; color: var(--muted); cursor: pointer; text-decoration: underline; padding: 4px 0; }
 
   .checklist { margin-top: 9px; display: flex; flex-direction: column; gap: 5px; }
   .check-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--slate); cursor: pointer; }
@@ -88,11 +92,8 @@
   .year-badge { display: inline-block; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 10px; padding: 2px 7px; border-radius: 20px; letter-spacing: 0.3px; }
   .badge-maeve { background: var(--amber); color: white; }
   .badge-all   { background: var(--teal);  color: white; }
-  .badge-p5    { background: #6c4db5; color: white; }
   .badge-p57   { background: #2e7d5e; color: white; }
-  .badge-p6    { background: #2980b9; color: white; }
   .badge-p7    { background: #7f8c8d; color: white; }
-  .badge-p14   { background: #c0392b; color: white; }
 
   .timeline { display: flex; flex-direction: column; }
   .tl-item { display: grid; grid-template-columns: 60px 1fr; }
@@ -116,8 +117,7 @@
   .body-maeve  .tl-desc { color: var(--slate); }
   .body-school .tl-desc { color: #1a6b74; }
   .tl-flag { display: inline-block; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 10px; padding: 2px 8px; border-radius: 20px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.4px; }
-  .flag-action { background: #fff0d6; color: var(--amber); border: 1px solid var(--amber-border); }
-  .flag-school { background: #d4f0f2; color: var(--teal);  border: 1px solid var(--teal-border); }
+  .flag-school { background: #d4f0f2; color: var(--teal); border: 1px solid var(--teal-border); }
   .tl-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 7px; align-items: center; }
 
   .tl-legend { display: flex; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
@@ -130,6 +130,14 @@
   .info-card h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--blue); margin-bottom: 3px; }
   .info-card p { font-size: 13px; color: var(--muted); }
   .info-card a { color: var(--teal); font-weight: 600; }
+  .info-card ul { font-size: 13px; color: var(--muted); margin: 4px 0 0 16px; }
+  .info-card li { margin-bottom: 2px; }
+
+  .future-card { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid var(--green); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 9px; }
+  .future-card h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: #14532d; margin-bottom: 3px; }
+  .future-card p { font-size: 13px; color: #166534; }
+  .future-card ul { font-size: 13px; color: #166534; margin: 4px 0 0 16px; }
+  .future-card li { margin-bottom: 2px; }
 
   .notices-toggle { width: 100%; background: none; border: 1px dashed var(--border); border-radius: var(--radius); padding: 10px 14px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 12px; color: var(--muted); cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; }
   .notices-toggle .arrow { transition: transform 0.2s; }
@@ -142,12 +150,6 @@
   .notice-card p { font-size: 13px; color: #5b21b6; }
   .notice-card a { color: #7c3aed; font-weight: 600; }
 
-  .future-card { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid var(--green); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 9px; }
-  .future-card h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: #14532d; margin-bottom: 3px; }
-  .future-card p { font-size: 13px; color: #166534; }
-
-  .reset-btn { display: block; margin: 4px auto 0; background: none; border: none; font-family: 'Nunito', sans-serif; font-size: 11px; color: var(--muted); cursor: pointer; text-decoration: underline; padding: 4px 0; }
-  .reset-btn:hover { color: var(--red); }
   footer { text-align: center; padding: 20px 16px 28px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 8px; }
   footer strong { color: var(--blue); }
 </style>
@@ -157,7 +159,7 @@
 <header>
   <div class="header-top">
     <h1>🏫 Toreagh Friday Notes<span>Maeve · P1 · 2025–26</span></h1>
-    <div class="week-badge">Week of 12–16 Jun</div>
+    <div class="week-badge">Week of 22–25 Jun</div>
   </div>
   <div class="tab-bar">
     <button class="tab-btn tab-maeve active" onclick="switchTab('maeve', this)">⭐ Maeve's View</button>
@@ -178,31 +180,23 @@
   <div class="section-label">⚡ Action Required</div>
   <div class="action-list" id="maeve-actions">
 
-    <div class="action-card" id="ac-peclothes" data-id="peclothes"
-         style="border-left-color:var(--teal); border-color:var(--teal-border); background:var(--teal-light);">
-      <button class="dismiss-btn" onclick="toggleDismiss('peclothes')" title="Mark as done">✓ Done</button>
-      <div class="ac-tag" style="background:var(--teal);">🏫 All · This week Mon–Thu</div>
-      <h3>PE clothes every day this week</h3>
-      <p>All children come to school in PE clothes <strong>Monday to Thursday</strong> — practising for Sports Day. Fingers crossed for dry weather!</p>
+    <div class="action-card" id="ac-ownclothes" data-id="ownclothes">
+      <button class="dismiss-btn" onclick="toggleDismiss('ownclothes')">✓ Done</button>
+      <div class="ac-tag">🏫 All · Tue 30 Jun</div>
+      <h3>Own clothes &amp; toy — last day of term</h3>
+      <p>All children can wear their own clothes and bring a toy on <strong>Tuesday 30th June</strong>. No electronic devices please. School finishes at <strong>12 noon</strong> that day.</p>
     </div>
 
-    <div class="action-card" id="ac-sportsday" data-id="sportsday"
-         style="border-left-color:var(--teal); border-color:var(--teal-border); background:var(--teal-light);">
-      <button class="dismiss-btn" onclick="toggleDismiss('sportsday')" title="Mark as done">✓ Done</button>
-      <div class="ac-tag" style="background:var(--teal);">📋 Fri 19 Jun · Prep needed</div>
-      <h3>Sports Day – Larne Leisure Centre</h3>
-      <p style="margin-bottom:4px;">Drop Maeve at the Leisure Centre at <strong>9.00am</strong>, walk her into the sports hall. Tick off before you leave:</p>
-      <div class="checklist">
-        <label class="check-item" id="ci-peclothes"><input type="checkbox" onchange="tickCheck(this)"> <span>PE clothes on (no school uniform)</span></label>
-        <label class="check-item" id="ci-bottle"><input type="checkbox" onchange="tickCheck(this)"> <span>Water bottle packed (only item needed)</span></label>
-        <label class="check-item" id="ci-nocoat"><input type="checkbox" onchange="tickCheck(this)"> <span>No coat needed</span></label>
-        <label class="check-item" id="ci-pickup"><input type="checkbox" onchange="tickCheck(this)"> <span>Pick-up arranged for ~11.30am (if not attending)</span></label>
-      </div>
+    <div class="action-card" id="ac-stationery" data-id="stationery">
+      <button class="dismiss-btn" onclick="toggleDismiss('stationery')">✓ Done</button>
+      <div class="ac-tag">💰 Tue 25 Aug — First day back</div>
+      <h3>Send £8.50 for stationery pack</h3>
+      <p>School is providing a whiteboard, 2 rubbers, 3 Pritt Sticks and 6 whiteboard pens for the year. Send <strong>£8.50 cash on the first day back, Tuesday 25th August</strong>. Cost price — no markup.</p>
     </div>
 
     <div class="action-card" id="ac-readingbooks" data-id="readingbooks"
          style="border-left-color:var(--teal); border-color:var(--teal-border); background:var(--teal-light);">
-      <button class="dismiss-btn" onclick="toggleDismiss('readingbooks')" title="Mark as done">✓ Done</button>
+      <button class="dismiss-btn" onclick="toggleDismiss('readingbooks')">✓ Done</button>
       <div class="ac-tag" style="background:var(--teal);">🏫 All · Thu 25 Jun</div>
       <h3>Return all reading books</h3>
       <p>All library and reading books must be returned to school by <strong>Thursday 25th June</strong>.</p>
@@ -220,70 +214,6 @@
   </div>
 
   <div class="timeline">
-
-    <div class="tl-item">
-      <div class="tl-date-col">
-        <div class="tl-bubble bubble-school"><span class="bday">15–16</span><span class="bmon">Jun</span></div>
-        <div class="tl-line line-school"></div>
-      </div>
-      <div class="tl-body body-school">
-        <div class="tl-flag flag-school">🏫 Whole school</div>
-        <h3>School Pantomime "Hoodwinked" 🎭</h3>
-        <p class="tl-desc">P5–7 performing. 7pm both evenings, doors open 6.40pm. Tickets on sale now.</p>
-        <div class="tl-meta"><span class="countdown-pill" data-date="2026-06-15"></span></div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-date-col">
-        <div class="tl-bubble bubble-maeve"><span class="bday">17</span><span class="bmon">Jun</span></div>
-        <div class="tl-line line-maeve"></div>
-      </div>
-      <div class="tl-body body-maeve">
-        <h3>Max Coding Club 💻</h3>
-        <p class="tl-desc">P1–3: <strong>2pm–3pm</strong> after school. Repeated Wed 24th June.</p>
-        <div class="tl-meta"><span class="countdown-pill" data-date="2026-06-17"></span></div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-date-col">
-        <div class="tl-bubble bubble-school"><span class="bday">18</span><span class="bmon">Jun</span></div>
-        <div class="tl-line line-school"></div>
-      </div>
-      <div class="tl-body body-school">
-        <div class="tl-flag flag-school">🏫 Whole school</div>
-        <h3>🍟 Munchie Box Thursday!</h3>
-        <p class="tl-desc">Party school dinner: chicken bites, chips, apple juice &amp; ice lolly. No packed lunch needed if having school dinner.</p>
-        <div class="tl-meta"><span class="countdown-pill" data-date="2026-06-18"></span></div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-date-col">
-        <div class="tl-bubble bubble-school"><span class="bday">19</span><span class="bmon">Jun</span></div>
-        <div class="tl-line line-school"></div>
-      </div>
-      <div class="tl-body body-school">
-        <div class="tl-flag flag-school">📋 Prep needed</div>
-        <h3>🏃 Sports Day – Larne Leisure Centre</h3>
-        <p class="tl-desc">Drop Maeve at the Leisure Centre at <strong>9.00am</strong>, walk her into the sports hall. PE clothes + water bottle only, no coat. Sports 9.30am, finish ~11.30am.</p>
-        <div class="tl-meta"><span class="countdown-pill" data-date="2026-06-19"></span></div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-date-col">
-        <div class="tl-bubble bubble-school"><span class="bday">20</span><span class="bmon">Jun</span></div>
-        <div class="tl-line line-school"></div>
-      </div>
-      <div class="tl-body body-school">
-        <div class="tl-flag flag-school">🏘️ Community</div>
-        <h3>Raloo Presbyterian Family Fun Night</h3>
-        <p class="tl-desc">Saturday 6–9pm, Raloo Presbyterian Church Halls. BBQ, bouncy castle, face painting, ice cream. Free event — everyone welcome.</p>
-        <div class="tl-meta"><span class="countdown-pill" data-date="2026-06-20"></span></div>
-      </div>
-    </div>
 
     <div class="tl-item">
       <div class="tl-date-col">
@@ -305,8 +235,33 @@
       <div class="tl-body body-school">
         <div class="tl-flag flag-school">🏫 Whole school</div>
         <h3>📚 Return all reading books</h3>
-        <p class="tl-desc">All library and reading books must be returned to school today.</p>
+        <p class="tl-desc">All library and reading books must go back to school today.</p>
         <div class="tl-meta"><span class="countdown-pill" data-date="2026-06-25"></span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date-col">
+        <div class="tl-bubble bubble-school"><span class="bday">30</span><span class="bmon">Jun</span></div>
+        <div class="tl-line line-school"></div>
+      </div>
+      <div class="tl-body body-school">
+        <div class="tl-flag flag-school">🏫 Whole school</div>
+        <h3>Last day of term 🎉 — 12 noon finish</h3>
+        <p class="tl-desc">Own clothes and bring a toy (no electronic devices). School finishes at <strong>12 noon</strong> for everyone.</p>
+        <div class="tl-meta"><span class="countdown-pill" data-date="2026-06-30"></span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date-col">
+        <div class="tl-bubble bubble-maeve"><span class="bday">25</span><span class="bmon">Aug</span></div>
+        <div class="tl-line line-maeve"></div>
+      </div>
+      <div class="tl-body body-maeve">
+        <h3>🏫 First day back — new term</h3>
+        <p class="tl-desc">New start time: <strong>8.50am</strong>. Maeve's class (P1/2 with Mrs Wells) finishes at <strong>12 noon</strong> on this first day only. Bring £8.50 for stationery pack.</p>
+        <div class="tl-meta"><span class="countdown-pill" data-date="2026-08-25"></span></div>
       </div>
     </div>
 
@@ -314,39 +269,38 @@
 
   <div class="section-label">📋 Good to Know</div>
 
-  <div class="info-card">
-    <h3>Homework – June</h3>
-    <p>No formal written homework this month. Reading, spelling and mental maths continue as normal for Maeve.</p>
+  <div class="future-card">
+    <h3>📅 New Term — September 2026</h3>
+    <p>School returns <strong>Tuesday 25th August</strong>. New start time: <strong>8.50am</strong> every day. Maeve is in <strong>P1/2 with Mrs Wells</strong> (classroom assistant: Ms Hunter). P1–3 finish at <strong>1.50pm</strong> daily — except first day (12 noon).</p>
   </div>
 
-  <div class="future-card">
-    <h3>📅 New Term – September 2026</h3>
-    <p>School returns <strong>Tuesday 25th August 2026</strong>. Important change: new start time is <strong>8.50am</strong>. P1–P3 will finish at <strong>1.50pm</strong> each day.</p>
+  <div class="info-card">
+    <h3>👕 Uniform — new term</h3>
+    <p>SD Kells are offering <strong>20% off all sweatshirts</strong>. Plain black trainers are acceptable instead of school shoes. If you need support with uniform costs, contact Miss Morrow — second-hand items (especially pinafores) available in school.</p>
   </div>
 
   <button class="notices-toggle" id="notices-btn" onclick="toggleNotices()">
-    <span>📌 More notices (Summer Read, Free Meals, E-Scooters)</span>
+    <span>📌 More notices (Summer Read, Free Meals, Clubs)</span>
     <span class="arrow">▾</span>
   </button>
   <div class="notices-collapsible" id="notices-body">
     <div class="info-card">
+      <h3>☀️ Breakfast &amp; 2 O'Clock Club</h3>
+      <p>Both clubs finish <strong>Thursday 25th June</strong> for summer. They restart <strong>Tuesday 1st September 2026</strong>. Note: Breakfast Club needs more sign-ups to remain financially viable — speak to school if interested.</p>
+    </div>
+    <div class="info-card">
       <h3>🍽️ Free School Meals &amp; Uniform Allowance</h3>
-      <p>Applications now open for the 2026–27 school year. Apply before <strong>Friday 31st July</strong> to guarantee support for the start of term. Apply at <a href="https://connect.eani.org.uk/parent/login" target="_blank">EA Connect →</a></p>
+      <p>Applications open for 2026–27. Apply before <strong>Friday 31st July</strong>. <a href="https://connect.eani.org.uk/parent/login" target="_blank">Apply at EA Connect →</a></p>
     </div>
     <div class="info-card">
       <h3>📚 Big Summer Read – Libraries NI</h3>
-      <p>Free reading challenge running July &amp; August at NI libraries. Theme: <em>The Story Tree</em>. Great for keeping Maeve reading over summer — 10 books earns a certificate!</p>
-      <p style="margin-top:6px;"><a href="https://libni.short.gy/LNITheBigSummerRead2026" target="_blank">Find out more →</a></p>
-    </div>
-    <div class="notice-card">
-      <h3>🛴 PSNI Notice – E-Scooters</h3>
-      <p>Private e-scooters cannot legally be used on public roads, pavements, parks, cycle paths or housing estates in Northern Ireland. Illegal use may result in seizure and a criminal record. <a href="https://www.psni.police.uk/safety-and-support/roads-and-driving/e-scooter-scrambler-and-quad-safety" target="_blank">More info →</a></p>
+      <p>Free reading challenge July &amp; August. Theme: <em>The Story Tree</em>. 10 books earns a certificate. <a href="https://libni.short.gy/LNITheBigSummerRead2026" target="_blank">Find out more →</a></p>
     </div>
   </div>
 
 </main>
 <footer>
-  <strong>Toreagh Friday Notes</strong> · Newsletter 12 June 2026<br>
+  <strong>Toreagh Friday Notes</strong> · Newsletter 22 June 2026<br>
   Safeguarding: Miss Morrow · lmorrow225@c2kni.net
 </footer>
 </div>
@@ -363,92 +317,25 @@
 
   <div class="section-label">⚡ Action Required</div>
   <div class="action-list">
-    <div class="action-card" style="border-left-color:var(--teal); border-color:var(--teal-border); background:var(--teal-light);">
-      <div class="ac-tag" style="background:var(--teal);">🏫 All · This week Mon–Thu</div>
-      <h3>PE clothes every day this week</h3>
-      <p>All children in PE clothes <strong>Monday to Thursday</strong> — practising for Sports Day.</p>
+    <div class="action-card">
+      <div class="ac-tag">🏫 All · Tue 30 Jun</div>
+      <h3>Own clothes &amp; toy — last day of term</h3>
+      <p>Own clothes + toy on <strong>Tue 30 Jun</strong>. No electronic devices. <strong>12 noon finish</strong> for all.</p>
+    </div>
+    <div class="action-card">
+      <div class="ac-tag">💰 Tue 25 Aug — First day back</div>
+      <h3>Send £8.50 for stationery pack</h3>
+      <p>Whiteboard, rubbers, Pritt Sticks &amp; pens for the year. Cash on first day back.</p>
     </div>
     <div class="action-card" style="border-left-color:var(--teal); border-color:var(--teal-border); background:var(--teal-light);">
       <div class="ac-tag" style="background:var(--teal);">🏫 All · Thu 25 Jun</div>
       <h3>Return all reading books</h3>
-      <p>All library and reading books must be returned by <strong>Thursday 25th June</strong>.</p>
+      <p>All library and reading books back to school by <strong>Thursday 25th June</strong>.</p>
     </div>
   </div>
 
   <div class="section-label">📅 All School Events</div>
   <div class="event-list">
-
-    <div class="event-card">
-      <div class="event-date"><span class="eday">15–16</span><span class="emon">Jun</span></div>
-      <div class="event-body">
-        <h3>School Pantomime "Hoodwinked" 🎭</h3>
-        <p class="ev-desc">7pm both evenings. Children in costume by <strong>6.40pm</strong>. Tickets on sale now.</p>
-        <div class="event-meta">
-          <span class="countdown-pill" data-date="2026-06-15"></span>
-          <span class="year-badge badge-p57">P5–7</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="event-card maeve-card">
-      <div class="event-date"><span class="eday">17</span><span class="emon">Jun</span></div>
-      <div class="event-body">
-        <h3>After School Club – Max Coding</h3>
-        <p class="ev-desc">P1–3: 2pm–3pm · P4–7: 3pm–4pm. Repeated Wed 24th June.</p>
-        <div class="event-meta">
-          <span class="countdown-pill" data-date="2026-06-17"></span>
-          <span class="year-badge badge-maeve">P1–3</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="event-card">
-      <div class="event-date"><span class="eday">18</span><span class="emon">Jun</span></div>
-      <div class="event-body">
-        <h3>🍟 Munchie Box Thursday!</h3>
-        <p class="ev-desc">Party dinner: chicken bites, chips, apple juice &amp; ice lolly.</p>
-        <div class="event-meta">
-          <span class="countdown-pill" data-date="2026-06-18"></span>
-          <span class="year-badge badge-all">All</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="event-card">
-      <div class="event-date"><span class="eday">19</span><span class="emon">Jun</span></div>
-      <div class="event-body">
-        <h3>🏃 Sports Day – Larne Leisure Centre</h3>
-        <p class="ev-desc">Drop off 9.00am, walk into sports hall. PE clothes + water bottle only. Sports 9.30am–11.30am. No coats.</p>
-        <div class="event-meta">
-          <span class="countdown-pill" data-date="2026-06-19"></span>
-          <span class="year-badge badge-all">All</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="event-card">
-      <div class="event-date"><span class="eday">20</span><span class="emon">Jun</span></div>
-      <div class="event-body">
-        <h3>Raloo Presbyterian Family Fun Night 🎉</h3>
-        <p class="ev-desc">Community event, 6–9pm. BBQ, bouncy castle, face painting, ice cream. Free — all welcome.</p>
-        <div class="event-meta">
-          <span class="countdown-pill" data-date="2026-06-20"></span>
-          <span class="year-badge badge-all">Community</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="event-card">
-      <div class="event-date"><span class="eday">23</span><span class="emon">Jun</span></div>
-      <div class="event-body">
-        <h3>P7 Treat Day – Chippy Day 🐟</h3>
-        <p class="ev-desc">No lunch needed — everything provided for P7s.</p>
-        <div class="event-meta">
-          <span class="countdown-pill" data-date="2026-06-23"></span>
-          <span class="year-badge badge-p7">P7</span>
-        </div>
-      </div>
-    </div>
 
     <div class="event-card maeve-card">
       <div class="event-date"><span class="eday">24</span><span class="emon">Jun</span></div>
@@ -466,7 +353,7 @@
       <div class="event-date"><span class="eday">25</span><span class="emon">Jun</span></div>
       <div class="event-body">
         <h3>P7 Last Day &amp; Final Assembly</h3>
-        <p class="ev-desc">Assembly at 9.30am, finished by 10.30am. Refreshments provided. Parents invited.</p>
+        <p class="ev-desc">Assembly 9.30am, done by 10.30am. Refreshments provided. Parents &amp; family invited. P7 water fight 10.30–11am — bring a change of clothes!</p>
         <div class="event-meta">
           <span class="countdown-pill" data-date="2026-06-25"></span>
           <span class="year-badge badge-p7">P7</span>
@@ -478,9 +365,45 @@
       <div class="event-date"><span class="eday">25</span><span class="emon">Jun</span></div>
       <div class="event-body">
         <h3>📚 Return all reading books</h3>
-        <p class="ev-desc">All library and reading books returned to school today.</p>
+        <p class="ev-desc">All library and reading books back to school today.</p>
         <div class="event-meta">
           <span class="countdown-pill" data-date="2026-06-25"></span>
+          <span class="year-badge badge-all">All</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date"><span class="eday">25</span><span class="emon">Jun</span></div>
+      <div class="event-body">
+        <h3>Breakfast &amp; 2 O'Clock Club — last day</h3>
+        <p class="ev-desc">Both clubs finish today for the summer. Restart Tue 1st September.</p>
+        <div class="event-meta">
+          <span class="countdown-pill" data-date="2026-06-25"></span>
+          <span class="year-badge badge-all">All</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date"><span class="eday">30</span><span class="emon">Jun</span></div>
+      <div class="event-body">
+        <h3>Last day of term — 12 noon finish 🎉</h3>
+        <p class="ev-desc">Own clothes + toy (no electronics). All children finish at 12 noon.</p>
+        <div class="event-meta">
+          <span class="countdown-pill" data-date="2026-06-30"></span>
+          <span class="year-badge badge-all">All</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date"><span class="eday">25</span><span class="emon">Aug</span></div>
+      <div class="event-body">
+        <h3>First day back — new term</h3>
+        <p class="ev-desc">New start time 8.50am. P1 finish 12 noon, P2–7 finish 12.15pm on this day only. Bring £8.50 for stationery.</p>
+        <div class="event-meta">
+          <span class="countdown-pill" data-date="2026-08-25"></span>
           <span class="year-badge badge-all">All</span>
         </div>
       </div>
@@ -490,39 +413,45 @@
 
   <div class="section-label">📋 Notices</div>
 
-  <div class="info-card">
-    <h3>Homework – June Policy</h3>
-    <p>No formal written homework in June. Reading, spelling &amp; mental maths continue. Exception: P6 SEAG test pupils continue as normal.</p>
+  <div class="future-card">
+    <h3>📅 New Term Classes — 2026–27</h3>
+    <ul>
+      <li><strong>P1/2</strong> — Mrs Wells · Ms Hunter (CA)</li>
+      <li><strong>P3</strong> — Mrs Robson / Mrs Craig (Mon–Tue / Wed–Fri)</li>
+      <li><strong>P4/5</strong> — Mrs McAuley (Mon–Thu, Fri TBC)</li>
+      <li><strong>P6</strong> — Mrs Ellison (Tue–Fri, Mon TBC)</li>
+      <li><strong>P7</strong> — Miss Morrow (Principal, cover TBC)</li>
+    </ul>
+    <p style="margin-top:6px;">Start time <strong>8.50am</strong> daily. P1–3 finish <strong>1.50pm</strong>. First day: P1 finish 12 noon, P2–7 finish 12.15pm.</p>
   </div>
 
-  <div class="future-card">
-    <h3>📅 New Term – September 2026</h3>
-    <p>School returns <strong>Tuesday 25th August 2026</strong>. New start time: <strong>8.50am</strong>. P1–P3 finish at <strong>1.50pm</strong> each day.</p>
+  <div class="info-card">
+    <h3>👕 Uniform — new term</h3>
+    <p>20% off sweatshirts at SD Kells. Plain black trainers acceptable. Second-hand items available from school — contact Miss Morrow.</p>
   </div>
 
   <button class="notices-toggle" id="notices-btn-all" onclick="toggleNoticesAll()">
-    <span>📌 More notices (Summer Read, Free Meals, E-Scooters)</span>
+    <span>📌 More notices (Summer Read, Free Meals, Clubs)</span>
     <span class="arrow">▾</span>
   </button>
   <div class="notices-collapsible" id="notices-body-all">
     <div class="info-card">
+      <h3>☀️ Breakfast &amp; 2 O'Clock Club</h3>
+      <p>Both clubs finish Thu 25th June. Restart Tue 1st September. Breakfast Club needs more sign-ups to remain viable.</p>
+    </div>
+    <div class="info-card">
       <h3>🍽️ Free School Meals &amp; Uniform Allowance</h3>
-      <p>Applications open for 2026–27. Apply before <strong>Friday 31st July</strong> to guarantee support for the start of term. <a href="https://connect.eani.org.uk/parent/login" target="_blank">Apply at EA Connect →</a></p>
+      <p>Applications open for 2026–27. Apply before <strong>Friday 31st July</strong>. <a href="https://connect.eani.org.uk/parent/login" target="_blank">Apply at EA Connect →</a></p>
     </div>
     <div class="info-card">
       <h3>📚 Big Summer Read – Libraries NI</h3>
-      <p>Free reading challenge July &amp; August in NI libraries. Theme: <em>The Story Tree</em>. Read 5 books → bookmark; 10 books → certificate.</p>
-      <p style="margin-top:6px;"><a href="https://libni.short.gy/LNITheBigSummerRead2026" target="_blank">Sign up at your local library →</a></p>
-    </div>
-    <div class="notice-card">
-      <h3>🛴 PSNI Notice – E-Scooters</h3>
-      <p>Private e-scooters cannot legally be used on public roads, pavements, parks, cycle paths or housing estates in Northern Ireland. <a href="https://www.psni.police.uk/safety-and-support/roads-and-driving/e-scooter-scrambler-and-quad-safety" target="_blank">More info →</a></p>
+      <p>Free reading challenge July &amp; August. Theme: <em>The Story Tree</em>. Read 10 books to earn a certificate. <a href="https://libni.short.gy/LNITheBigSummerRead2026" target="_blank">Sign up →</a></p>
     </div>
   </div>
 
 </main>
 <footer>
-  <strong>Toreagh Friday Notes</strong> · Newsletter 12 June 2026<br>
+  <strong>Toreagh Friday Notes</strong> · Newsletter 22 June 2026<br>
   Safeguarding: Miss Morrow · lmorrow225@c2kni.net
 </footer>
 </div>
@@ -552,31 +481,24 @@ function renderCountdowns() {
 }
 
 const maeveEvents = [
-  { date:'2026-06-15', title:'Pantomime "Hoodwinked" 🎭', desc:'P5–7 performing. 7pm, doors 6.40pm.' },
-  { date:'2026-06-17', title:'Max Coding Club 💻', desc:'P1–3: 2pm–3pm after school.' },
-  { date:'2026-06-18', title:'🍟 Munchie Box Thursday!', desc:'Special school dinner — no packed lunch needed.' },
-  { date:'2026-06-19', title:'🏃 Sports Day', desc:'Drop at Larne Leisure Centre 9.00am. PE clothes + water bottle only.' },
-  { date:'2026-06-20', title:'Family Fun Night 🎉', desc:'Raloo Presbyterian Church Halls, 6–9pm. Free event.' },
   { date:'2026-06-24', title:'Max Coding Club 💻', desc:'P1–3: 2pm–3pm after school.' },
   { date:'2026-06-25', title:'Return reading books 📚', desc:'All library books back to school today.' },
+  { date:'2026-06-30', title:'Last day of term 🎉', desc:'Own clothes + toy. School finishes at 12 noon.' },
+  { date:'2026-08-25', title:'First day back 🏫', desc:'New start time 8.50am. Maeve finishes 12 noon. Bring £8.50 for stationery.' },
 ];
 
 const allEvents = [
-  { date:'2026-06-15', title:'Pantomime "Hoodwinked" 🎭', desc:'7pm, P5–7. Children in costume by 6.40pm.' },
-  { date:'2026-06-17', title:'Max Coding Club', desc:'P1–3: 2–3pm · P4–7: 3–4pm.' },
-  { date:'2026-06-18', title:'🍟 Munchie Box Thursday!', desc:'Special school dinner for all.' },
-  { date:'2026-06-19', title:'🏃 Sports Day', desc:'Larne Leisure Centre. Drop off 9.00am.' },
-  { date:'2026-06-20', title:'Family Fun Night 🎉', desc:'Raloo Presbyterian, 6–9pm. Free.' },
-  { date:'2026-06-23', title:'P7 Chippy Day 🐟', desc:'Treat day — everything provided.' },
   { date:'2026-06-24', title:'Max Coding Club', desc:'P1–3: 2–3pm · P4–7: 3–4pm.' },
-  { date:'2026-06-25', title:'P7 Last Day & Final Assembly', desc:'Assembly 9.30am, done by 10.30am.' },
+  { date:'2026-06-25', title:'P7 Last Day & Final Assembly', desc:'Assembly 9.30am. P7 water fight 10.30–11am.' },
   { date:'2026-06-25', title:'Return reading books 📚', desc:'All books back to school today.' },
+  { date:'2026-06-30', title:'Last day of term 🎉 — 12 noon finish', desc:'Own clothes + toy. 12 noon finish for all.' },
+  { date:'2026-08-25', title:'First day back 🏫', desc:'New start time 8.50am. Bring £8.50 stationery money.' },
 ];
 
 function renderNextUp(events, id) {
   const el = document.getElementById(id);
   const next = events.find(e => daysUntil(e.date) >= 0);
-  if (!next) { el.innerHTML = '<p style="opacity:0.7;font-size:13px;">No more events this term.</p>'; return; }
+  if (!next) { el.innerHTML = '<p style="opacity:0.7;font-size:13px;">No more events this term — enjoy the summer! ☀️</p>'; return; }
   const info = countdownLabel(daysUntil(next.date));
   const dateStr = parseDate(next.date).toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long' });
   el.innerHTML = `<div class="next-up-eyebrow">Next up</div>
@@ -595,7 +517,7 @@ function switchTab(view, btn) {
   btn.classList.add('active');
 }
 
-const DISMISS_KEY = 'toreagh_dismissed_v2';
+const DISMISS_KEY = 'toreagh_dismissed_v3';
 function getDismissed() { try { return JSON.parse(localStorage.getItem(DISMISS_KEY) || '[]'); } catch { return []; } }
 function toggleDismiss(id) {
   const card = document.getElementById('ac-' + id);
@@ -617,11 +539,7 @@ function toggleDismiss(id) {
 function applyDismissed() {
   getDismissed().forEach(id => {
     const c = document.getElementById('ac-'+id);
-    if (c) {
-      c.classList.add('dismissed');
-      const btn = c.querySelector('.dismiss-btn');
-      if (btn) btn.textContent = '↩ Undo';
-    }
+    if (c) { c.classList.add('dismissed'); const btn = c.querySelector('.dismiss-btn'); if (btn) btn.textContent = '↩ Undo'; }
   });
   checkAllDone();
 }
@@ -631,7 +549,7 @@ function checkAllDone() {
   notice.style.display = visible.length === 0 ? 'block' : 'none';
 }
 
-const CHECK_KEY = 'toreagh_checks_v2';
+const CHECK_KEY = 'toreagh_checks_v3';
 function getChecks() { try { return JSON.parse(localStorage.getItem(CHECK_KEY) || '{}'); } catch { return {}; } }
 function tickCheck(checkbox) {
   const label = checkbox.closest('label');
@@ -655,11 +573,11 @@ function resetActions() {
   });
   document.querySelectorAll('.check-item').forEach(l => {
     l.classList.remove('checked');
-    const cb = l.querySelector('input');
-    if (cb) cb.checked = false;
+    const cb = l.querySelector('input'); if (cb) cb.checked = false;
   });
   checkAllDone();
 }
+
 function toggleNotices() { document.getElementById('notices-btn').classList.toggle('open'); document.getElementById('notices-body').classList.toggle('open'); }
 function toggleNoticesAll() { document.getElementById('notices-btn-all').classList.toggle('open'); document.getElementById('notices-body-all').classList.toggle('open'); }
 
