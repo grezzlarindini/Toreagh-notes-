@@ -238,8 +238,8 @@
   <div class="header-top">
     <h1>🏫 Toreagh Friday Notes<span>Maeve · P2 · 2026–27</span></h1>
     <div class="header-right">
-      <div class="week-badge">W/C 11 Sep 2026</div>
-      <div class="updated-badge">Updated 11 Sep 2026</div>
+      <div class="week-badge">W/C 18 Sep 2026</div>
+      <div class="updated-badge">Updated 18 Sep 2026</div>
     </div>
   </div>
   <div class="tab-bar">
@@ -287,6 +287,47 @@
       <p>Please make sure all coats and school sweatshirts are clearly labelled with Maeve's name.</p>
     </div>
 
+    <div class="action-card" id="ac-flu" data-id="flu">
+      <button class="dismiss-btn" onclick="toggleDismiss('flu')">✓ Done</button>
+      <div class="ac-tag">💉 Return Monday</div>
+      <h3>Return flu vaccination form</h3>
+      <p>Complete and return to school on <strong>Monday</strong> — even if Maeve is <em>not</em> receiving the vaccination, the form must still be returned.</p>
+    </div>
+
+    <div class="action-card" id="ac-safeguarding" data-id="safeguarding">
+      <button class="dismiss-btn" onclick="toggleDismiss('safeguarding')">✓ Done</button>
+      <div class="ac-tag">🛡️ Return to school</div>
+      <h3>Sign &amp; return Safeguarding Policy receipt</h3>
+      <p>The Safeguarding and Child Protection Policy has been sent home. Read, sign the receipt slip, and return it to school.</p>
+    </div>
+
+    <div class="action-card" id="ac-consent" data-id="consent">
+      <button class="dismiss-btn" onclick="toggleDismiss('consent')">✓ Done</button>
+      <div class="ac-tag">📋 Return to school</div>
+      <h3>Complete &amp; return school consent forms</h3>
+      <p>Consent forms sent home today. Return to school — only need completing once in P1 but any outstanding forms must still be returned.</p>
+    </div>
+
+    <div class="action-card" id="ac-coat" data-id="coat">
+      <button class="dismiss-btn" onclick="toggleDismiss('coat')">✓ Done</button>
+      <div class="ac-tag">🧥 Now</div>
+      <h3>Send Maeve with a named coat daily</h3>
+      <p>As the weather changes children are going outside at break and lunch — Maeve should bring a <strong>named coat</strong> to school every day.</p>
+    </div>
+
+    <div class="action-card" id="ac-panto" data-id="panto">
+      <button class="dismiss-btn" onclick="toggleDismiss('panto')">✓ Done</button>
+      <div class="ac-tag">🎭 By Fri 6 Nov</div>
+      <h3>Send £12.50 for Christmas Pantomime</h3>
+      <p>Whole school trip to <strong>Peter Pan</strong> at Reading Rooms Theatre, Larne on <strong>Thursday 10th December</strong>. £12.50 per child — bring to school by <strong>Friday 6th November</strong>. Transport subsidised by Friends of Toreagh.</p>
+    </div>
+
+    <div class="action-card" id="ac-multisport-consent" data-id="multisport-consent">
+      <button class="dismiss-btn" onclick="toggleDismiss('multisport-consent')">✓ Done</button>
+      <div class="ac-tag">⭐ Mon 14 Sep — Maeve</div>
+      <h3>Return multisport consent form</h3>
+      <p>Multi sports started <strong>Monday 14th September</strong>. Outstanding consent forms must be returned before Maeve can take part.</p>
+    </div>
 
   </div>
   <div class="dismissed-notice" id="all-done-notice">✓ All actions done — nothing outstanding right now.</div>
@@ -294,6 +335,11 @@
   <!-- RECURRING REMINDERS — visually separate -->
   <div class="section-label">↻ Weekly Reminders</div>
   <div class="action-list">
+    <div class="action-card recurring">
+      <div class="ac-tag">🏃 Multi Sport Mondays</div>
+      <h3>Maeve multi sport days — tracksuit &amp; trainers</h3>
+      <p>On <strong>multi sport Mondays</strong> (14, 21, 28 Sep · 5, 12, 19 Oct · 2, 9, 16, 23 Nov) Maeve needs tracksuit bottoms and trainers to change into. Pick-up is <strong>3pm</strong> on these days instead of 1.50pm.</p>
+    </div>
     <div class="action-card recurring">
       <div class="ac-tag">🍽️ Every Monday</div>
       <h3>School dinner money — Monday mornings only</h3>
@@ -437,7 +483,7 @@
     <!-- HALF TERM DIVIDER -->
     <div class="tl-divider">
       <div class="tl-divider-line"></div>
-      <div class="tl-divider-label">🎃 Half Term 26–30 Oct</div>
+      <div class="tl-divider-label">🎃 Half Term 26 Oct – 30 Oct</div>
       <div class="tl-divider-line"></div>
     </div>
 
@@ -451,6 +497,57 @@
         <h3>Back after half term</h3>
         <p class="tl-desc">School resumes Monday 2nd November at 8.50am.</p>
         <div class="tl-meta"><span class="countdown-pill" data-date="2026-11-02"></span></div>
+      </div>
+    </div>
+
+    <div class="tl-item" data-date="2026-11-16">
+      <div class="tl-date-col">
+        <div class="tl-bubble bubble-school"><span class="bday">16–20</span><span class="bmon">Nov</span></div>
+        <div class="tl-line line-school"></div>
+      </div>
+      <div class="tl-body body-school">
+        <div class="tl-flag flag-school">🏫 Whole school</div>
+        <h3>Look After Yourself Week</h3>
+        <p class="tl-desc">Week of 16th–20th November. Details to follow.</p>
+        <div class="tl-meta"><span class="countdown-pill" data-date="2026-11-16"></span></div>
+      </div>
+    </div>
+
+    <div class="tl-item" data-date="2026-11-27">
+      <div class="tl-date-col">
+        <div class="tl-bubble bubble-school"><span class="bday">27</span><span class="bmon">Nov</span></div>
+        <div class="tl-line line-school"></div>
+      </div>
+      <div class="tl-body body-school">
+        <div class="tl-flag flag-school">🏫 Whole school</div>
+        <h3>Transform Education Day — pupils off</h3>
+        <p class="tl-desc">No children in school Friday 27th November.</p>
+        <div class="tl-meta"><span class="countdown-pill" data-date="2026-11-27"></span></div>
+      </div>
+    </div>
+
+    <div class="tl-item" data-date="2026-12-10">
+      <div class="tl-date-col">
+        <div class="tl-bubble bubble-maeve"><span class="bday">10</span><span class="bmon">Dec</span></div>
+        <div class="tl-line line-maeve"></div>
+      </div>
+      <div class="tl-body body-maeve">
+        <h3>🎭 Christmas Pantomime — Peter Pan</h3>
+        <p class="tl-desc">Whole school trip to Reading Rooms Theatre, Larne. £12.50 per child — send by <strong>Fri 6th November</strong>. Transport by Travel Time Coaches, subsidised by Friends of Toreagh.</p>
+        <div class="tl-meta"><span class="countdown-pill" data-date="2026-12-10"></span></div>
+      </div>
+    </div>
+
+    <div class="tl-item" data-date="2026-12-18">
+      <div class="tl-date-col">
+        <div class="tl-bubble bubble-school"><span class="bday">18</span><span class="bmon">Dec</span></div>
+        <div class="tl-line line-school"></div>
+      </div>
+      <div class="tl-body body-school">
+        <div class="tl-flag flag-school">🎄 Whole school</div>
+        <h3>School closes for Christmas — 12 noon</h3>
+        <p class="tl-desc">Friday 18th December. School closes at 12 noon for the Christmas holidays.</p>
+        <div class="tl-meta"><span class="countdown-pill" data-date="2026-12-18"></span></div>
       </div>
     </div>
 
@@ -495,7 +592,7 @@
   <div class="notices-collapsible" id="notices-body">
     <div class="info-card">
       <h3>📘 School Facebook page — coming soon</h3>
-      <p>The school is setting up a Facebook page. Consent forms for all areas will be issued next week — keep an eye out for these.</p>
+      <p>The school is setting up a Facebook page. Consent forms have now been issued — return to school as soon as possible.</p>
     </div>
 
     <div class="info-card">
@@ -526,7 +623,7 @@
 
 </main>
 <footer>
-  <strong>Toreagh Friday Notes</strong> · Newsletter 11 September 2026<br>
+  <strong>Toreagh Friday Notes</strong> · Newsletter 18 September 2026<br>
   Safeguarding: Miss Morrow · lmorrow225@c2kni.net
 </footer>
 </div>
@@ -683,6 +780,24 @@
       </div>
     </div>
 
+    <div class="event-card" data-date="2026-10-03">
+      <div class="event-date"><span class="eday">3</span><span class="emon">Oct</span></div>
+      <div class="event-body">
+        <h3>🎪 Mounthill Fair</h3>
+        <p class="ev-desc">Saturday 10am–5pm, Crosshill Road, Raloo. Adults £2, Children £1. Music, entertainment, horse &amp; pony. Community event.</p>
+        <div class="event-meta"><span class="countdown-pill" data-date="2026-10-03"></span><span class="year-badge badge-all">Community</span></div>
+      </div>
+    </div>
+
+    <div class="event-card" data-date="2026-10-07">
+      <div class="event-date"><span class="eday">7</span><span class="emon">Oct</span></div>
+      <div class="event-body">
+        <h3>Visit from Minister Givan</h3>
+        <p class="ev-desc">Education Minister Paul Givan visiting school Wednesday 7th October.</p>
+        <div class="event-meta"><span class="countdown-pill" data-date="2026-10-07"></span><span class="year-badge badge-all">All</span></div>
+      </div>
+    </div>
+
     <div class="event-card" data-date="2026-10-26">
       <div class="event-date"><span class="eday">26–30</span><span class="emon">Oct</span></div>
       <div class="event-body">
@@ -698,6 +813,42 @@
         <h3>Back after half term</h3>
         <p class="ev-desc">School resumes 8.50am.</p>
         <div class="event-meta"><span class="countdown-pill" data-date="2026-11-02"></span><span class="year-badge badge-all">All</span></div>
+      </div>
+    </div>
+
+    <div class="event-card" data-date="2026-11-16">
+      <div class="event-date"><span class="eday">16–20</span><span class="emon">Nov</span></div>
+      <div class="event-body">
+        <h3>Look After Yourself Week</h3>
+        <p class="ev-desc">Week of 16th–20th November. Details to follow.</p>
+        <div class="event-meta"><span class="countdown-pill" data-date="2026-11-16"></span><span class="year-badge badge-all">All</span></div>
+      </div>
+    </div>
+
+    <div class="event-card" data-date="2026-11-27">
+      <div class="event-date"><span class="eday">27</span><span class="emon">Nov</span></div>
+      <div class="event-body">
+        <h3>Transform Education Day — pupils off</h3>
+        <p class="ev-desc">No children in school Friday 27th November.</p>
+        <div class="event-meta"><span class="countdown-pill" data-date="2026-11-27"></span><span class="year-badge badge-all">All</span></div>
+      </div>
+    </div>
+
+    <div class="event-card maeve-card" data-date="2026-12-10">
+      <div class="event-date"><span class="eday">10</span><span class="emon">Dec</span></div>
+      <div class="event-body">
+        <h3>🎭 Christmas Pantomime — Peter Pan</h3>
+        <p class="ev-desc">Reading Rooms Theatre, Larne. £12.50 — send by Fri 6 Nov. Transport subsidised by Friends of Toreagh.</p>
+        <div class="event-meta"><span class="countdown-pill" data-date="2026-12-10"></span><span class="year-badge badge-all">All</span></div>
+      </div>
+    </div>
+
+    <div class="event-card" data-date="2026-12-18">
+      <div class="event-date"><span class="eday">18</span><span class="emon">Dec</span></div>
+      <div class="event-body">
+        <h3>🎄 School closes — 12 noon</h3>
+        <p class="ev-desc">Friday 18th December. Christmas holidays begin.</p>
+        <div class="event-meta"><span class="countdown-pill" data-date="2026-12-18"></span><span class="year-badge badge-all">All</span></div>
       </div>
     </div>
 
@@ -759,7 +910,7 @@
 
 </main>
 <footer>
-  <strong>Toreagh Friday Notes</strong> · Newsletter 11 September 2026<br>
+  <strong>Toreagh Friday Notes</strong> · Newsletter 18 September 2026<br>
   Safeguarding: Miss Morrow · lmorrow225@c2kni.net
 </footer>
 </div>
@@ -837,6 +988,10 @@ const maeveEvents = [
   { date:'2026-10-23', title:'💉 Flu Vaccinations', desc:'School nurse in today.' },
   { date:'2026-10-26', title:'🎃 Half Term begins', desc:'Off until Monday 2nd November.' },
   { date:'2026-11-02', title:'Back after half term', desc:'School resumes 8.50am.' },
+  { date:'2026-11-16', title:'Look After Yourself Week', desc:'Week of 16th-20th November.' },
+  { date:'2026-11-27', title:'Transform Education Day', desc:'Pupils off school.' },
+  { date:'2026-12-10', title:'🎭 Christmas Pantomime — Peter Pan', desc:'Reading Rooms Theatre, Larne. Whole school trip.' },
+  { date:'2026-12-18', title:'🎄 School closes for Christmas', desc:'12 noon finish. Christmas holidays begin.' },
 ];
 
 const allEvents = [
@@ -855,6 +1010,10 @@ const allEvents = [
   { date:'2026-10-23', title:'💉 Flu Vaccinations', desc:'School nurse in today.' },
   { date:'2026-10-26', title:'🎃 Half Term', desc:'Off 26th–30th October.' },
   { date:'2026-11-02', title:'Back after half term', desc:'School resumes 8.50am.' },
+  { date:'2026-11-16', title:'Look After Yourself Week', desc:'Week of 16th-20th November.' },
+  { date:'2026-11-27', title:'Transform Education Day', desc:'Pupils off school.' },
+  { date:'2026-12-10', title:'🎭 Christmas Pantomime — Peter Pan', desc:'Reading Rooms Theatre, Larne. Whole school trip.' },
+  { date:'2026-12-18', title:'🎄 School closes for Christmas', desc:'12 noon finish. Christmas holidays begin.' },
 ];
 
 function renderNextUp(events, containerId) {
