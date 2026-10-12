@@ -266,42 +266,42 @@
   <div class="section-label">⚡ Action Required</div>
   <div class="action-list" id="maeve-actions">
 
-    <div class="action-card" id="ac-stationery" data-id="stationery">
+    <div class="action-card" id="ac-stationery" data-expires="2026-09-05" data-id="stationery">
       <button class="dismiss-btn" onclick="toggleDismiss('stationery')">✓ Done</button>
       <div class="ac-tag">💰 First day back</div>
       <h3>Send £8.50 for stationery pack</h3>
       <p>Whiteboard, 2 rubbers, 3 Pritt Sticks &amp; 6 whiteboard pens for the year. Send <strong>£8.50 cash on Tuesday 25th August</strong> or as soon as possible after.</p>
     </div>
 
-    <div class="action-card" id="ac-milk" data-id="milk">
+    <div class="action-card" id="ac-milk" data-expires="2026-09-08" data-id="milk">
       <button class="dismiss-btn" onclick="toggleDismiss('milk')">✓ Done</button>
       <div class="ac-tag">🥛 From Mon 1 Sep</div>
       <h3>Confirm school milk for Maeve</h3>
       <p>All children receive milk from <strong>Monday 1st September</strong>. If Maeve no longer wants milk, contact Mrs Wilson to cancel. If she'd like to start, Mrs Wilson can arrange it.</p>
     </div>
 
-    <div class="action-card" id="ac-labels" data-id="labels">
+    <div class="action-card" id="ac-labels" data-expires="2026-09-30" data-id="labels">
       <button class="dismiss-btn" onclick="toggleDismiss('labels')">✓ Done</button>
       <div class="ac-tag">🏷️ This week</div>
       <h3>Label Maeve's coats &amp; sweatshirts</h3>
       <p>Please make sure all coats and school sweatshirts are clearly labelled with Maeve's name.</p>
     </div>
 
-    <div class="action-card" id="ac-flu" data-id="flu">
+    <div class="action-card" id="ac-flu" data-expires="2026-09-22" data-id="flu">
       <button class="dismiss-btn" onclick="toggleDismiss('flu')">✓ Done</button>
       <div class="ac-tag">💉 Return Monday</div>
       <h3>Return flu vaccination form</h3>
       <p>Complete and return to school on <strong>Monday</strong> — even if Maeve is <em>not</em> receiving the vaccination, the form must still be returned.</p>
     </div>
 
-    <div class="action-card" id="ac-safeguarding" data-id="safeguarding">
+    <div class="action-card" id="ac-safeguarding" data-expires="2026-09-30" data-id="safeguarding">
       <button class="dismiss-btn" onclick="toggleDismiss('safeguarding')">✓ Done</button>
       <div class="ac-tag">🛡️ Return to school</div>
       <h3>Sign &amp; return Safeguarding Policy receipt</h3>
       <p>The Safeguarding and Child Protection Policy has been sent home. Read, sign the receipt slip, and return it to school.</p>
     </div>
 
-    <div class="action-card" id="ac-consent" data-id="consent">
+    <div class="action-card" id="ac-consent" data-expires="2026-09-30" data-id="consent">
       <button class="dismiss-btn" onclick="toggleDismiss('consent')">✓ Done</button>
       <div class="ac-tag">📋 Return to school</div>
       <h3>Complete &amp; return school consent forms</h3>
@@ -315,7 +315,7 @@
       <p>As the weather changes children are going outside at break and lunch — Maeve should bring a <strong>named coat</strong> to school every day.</p>
     </div>
 
-    <div class="action-card" id="ac-disco" data-id="disco">
+    <div class="action-card" id="ac-disco" data-expires="2026-10-15" data-id="disco">
       <button class="dismiss-btn" onclick="toggleDismiss('disco')">✓ Done</button>
       <div class="ac-tag">🎃 Wed 14 Oct · Maeve</div>
       <h3>Fancy Dress Disco — £3 on the door</h3>
@@ -329,7 +329,7 @@
       <p>Whole school trip to <strong>Peter Pan</strong> at Reading Rooms Theatre, Larne on <strong>Thursday 10th December</strong>. £12.50 per child — bring to school by <strong>Friday 6th November</strong>. Transport subsidised by Friends of Toreagh.</p>
     </div>
 
-    <div class="action-card" id="ac-multisport-consent" data-id="multisport-consent">
+    <div class="action-card" id="ac-multisport-consent" data-expires="2026-09-21" data-id="multisport-consent">
       <button class="dismiss-btn" onclick="toggleDismiss('multisport-consent')">✓ Done</button>
       <div class="ac-tag">⭐ Mon 14 Sep — Maeve</div>
       <h3>Return multisport consent form</h3>
@@ -1121,7 +1121,8 @@ function switchTab(view, btn) {
 // ── ACTION BADGE ─────────────────────────────────────────
 function updateActionBadge() {
   const badge = document.getElementById('action-badge');
-  const count = document.querySelectorAll('#maeve-actions .action-card:not(.dismissed)').length;
+  const count = [...document.querySelectorAll('#maeve-actions .action-card:not(.dismissed)')]
+    .filter(c => c.style.display !== 'none').length;
   if (count > 0) { badge.textContent = count; badge.style.display = 'flex'; }
   else { badge.style.display = 'none'; }
 }
@@ -1147,6 +1148,14 @@ function toggleDismiss(id) {
   updateActionBadge();
 }
 function applyDismissed() {
+  // Auto-remove any action card whose expiry date has passed
+  document.querySelectorAll('.action-card[data-expires]').forEach(card => {
+    const expires = card.getAttribute('data-expires');
+    if (expires && daysUntil(expires) < 0) {
+      card.style.display = 'none';
+    }
+  });
+  // Apply manual dismissals
   getDismissed().forEach(id => {
     const c = document.getElementById('ac-'+id);
     if (c) { c.classList.add('dismissed'); const b = c.querySelector('.dismiss-btn'); if (b) b.textContent = '↩ Undo'; }
@@ -1156,7 +1165,8 @@ function applyDismissed() {
 }
 function checkAllDone() {
   const notice = document.getElementById('all-done-notice');
-  const visible = document.querySelectorAll('#maeve-actions .action-card:not(.dismissed)');
+  const visible = [...document.querySelectorAll('#maeve-actions .action-card:not(.dismissed)')]
+    .filter(c => c.style.display !== 'none');
   notice.style.display = visible.length === 0 ? 'block' : 'none';
 }
 
